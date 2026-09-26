@@ -1,16 +1,111 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Crown LIVE</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#130b23;color:white;text-align:center}header{padding:45px 20px;background:linear-gradient(135deg,#321253,#140b25)}h1{color:#f2c65d;font-size:42px}p{line-height:1.6}.container{max-width:700px;margin:auto;padding:30px 20px}.card{background:#28183d;border:1px solid #9d7b3c;border-radius:16px;padding:25px;margin:20px 0}footer{padding:25px;color:#ccc}
+*{box-sizing:border-box}
+body{margin:0;background:#0c101a;color:white;font-family:Arial,sans-serif}
+header{padding:25px 18px;background:#171c2a;text-align:center}
+h1{color:#eac65e;margin:0;font-size:32px}
+.gold{color:#eac65e}
+small,.muted{color:#aab1c3}
+nav{display:flex;justify-content:space-around;background:#202638;padding:16px 4px;position:sticky;top:0}
+nav button{background:none;border:0;color:white;font-weight:bold}
+main{padding:17px;max-width:650px;margin:auto}
+.card{background:#1d2434;border:1px solid #353e52;border-radius:17px;padding:20px;margin:17px 0}
+h2{font-size:22px}
+.green{color:#3cdb99}
+.red{color:#ff6679}
+button{cursor:pointer}
+.action{background:#eac65e;color:#111;border:0;border-radius:12px;padding:13px;font-weight:bold;width:100%;margin-top:10px}
+.price{font-size:25px;font-weight:bold}
+.row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #394052;padding:13px 0}
+input{width:100%;padding:14px;border-radius:10px;border:0;font-size:18px}
+.hidden{display:none}
+footer{text-align:center;padding:25px;color:#aab1c3;font-size:12px}
 </style>
 </head>
 <body>
-<header><h1>♛ CROWN LIVE</h1><p>Discover more. Compare smarter. Save better.</p></header>
-<main class="container"><h2>Welcome to Crown LIVE</h2><p>Your destination for discovering products, comparing prices and finding deals.</p><div class="card"><h2>Coming Soon</h2><p>We're building your new shopping and savings experience.</p></div><p>Our first public preview is on its way!</p></main>
-<footer>© 2026 Crown LIVE</footer>
+<header>
+<h1>♛ CROWN LIVE</h1>
+<p>YOUR MONEY. YOUR MOVE.</p>
+<span class="green">● DEMO DASHBOARD</span>
+</header>
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('markets')">Markets</button>
+<button onclick="show('vault')">The Vault</button>
+</nav>
+<main>
+<section id="home">
+<div class="card">
+<small>WELCOME TO CROWN LIVE</small>
+<h2>Discover the market.</h2>
+<p>Research stocks, explore opportunities and build your own watchlist.</p>
+<button class="action" onclick="show('markets')">EXPLORE MARKETS →</button>
+</div>
+<div class="card">
+<h2>👑 Crown Discovery Box</h2>
+<p>How much are you thinking about investing?</p>
+<div style="display:flex;gap:8px">
+<button class="action" onclick="amount(20)">$20</button>
+<button class="action" onclick="amount(50)">$50</button>
+<button class="action" onclick="amount(100)">$100</button>
+</div>
+<p id="choice" class="gold">Choose an amount to explore.</p>
+<p class="muted">Explore long-term investing. These amounts are examples, not personalized recommendations.</p>
+</div>
+<div class="card">
+<h2>💀 The Grim Reaper</h2>
+<p class="gold">CUT THROUGH THE HYPE.</p>
+<p>Discover the risks behind trending investments before making your move.</p>
+<button class="action" onclick="show('vault')">ENTER THE VAULT →</button>
+</div>
+</section>
+<section id="markets" class="hidden">
+<h2>Market Watch</h2>
+<p class="muted">Illustrative prices only. Not live quotes.</p>
+<div class="card">
+<div class="row"><b>Apple (AAPL)</b><span>$200.00</span></div>
+<div class="row"><b>NVIDIA (NVDA)</b><span>$125.00</span></div>
+<div class="row"><b>Microsoft (MSFT)</b><span>$420.00</span></div>
+<div class="row"><b>Bitcoin (BTC)</b><span>$80,000</span></div>
+<div class="row"><b>Ethereum (ETH)</b><span>$2,500</span></div>
+<button class="action" onclick="show('home')">BACK TO DISCOVERY</button>
+</div>
+</section>
+<section id="vault" class="hidden">
+<div class="card">
+<h2>💀 THE GRIM REAPER</h2>
+<p class="gold">DON'T LET THE HYPE BURY YOUR MONEY.</p>
+<p>Before investing, check:</p>
+<p>✓ What does the company actually do?</p>
+<p>✓ How much debt does it have?</p>
+<p>✓ Is its revenue growing?</p>
+<p>✓ How much could you lose?</p>
+<p>✓ Can you afford to leave the money invested?</p>
+<button class="action" onclick="show('markets')">EXPLORE ASSETS</button>
+</div>
+</section>
+</main>
+<footer>
+CROWN LIVE © 2026<br><br>
+Educational demonstration. Investments can lose value.
+No trades or deposits are processed here.
+</footer>
+<script>
+function show(id){
+document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+window.scrollTo(0,0);
+}
+function amount(n){
+document.getElementById("choice").textContent=
+"You selected $"+n+". Explore investments and their risks before deciding.";
+}
+</script>
 </body>
 </html>
